@@ -14,8 +14,8 @@ public class Main {
         String baseURL = "https://web.socem.plymouth.ac.uk/COMP2005/api/";
 
 
-        JSONArray testerAd = Getter.parseJsonToJsonArray("src/mock_objects/mockAdmissionsArray.json");
-        JSONArray testerAl = Getter.parseJsonToJsonArray("src/mock_objects/mockAllocationsArray.json");
+        JSONArray testerAd = Getter.parseJsonToJsonArray("src/mock_objects/mockAdmissionsArray");
+        JSONArray testerAl = Getter.parseJsonToJsonArray("src/mock_objects/mockAllocationsArray");
 
 
         JSONArray admissions = Getter.parseJsonToJsonArray(baseURL + "Admissions");

@@ -86,50 +86,46 @@ public class RunTests {
 
     public static class ParsingJSONTest {
 
-        private static Admission admission;
-
-        private final int id = 1;
-        private final String admissionDate = "2022-02-22T11:11:11";
-        private final String dischargeDate = "2022-02-22T22:22:22";
-        private final int patientID = 2;
-
-        @Before
-        public void initialize() {
-            admission = new Admission();
-        }
-
         @Test
         public void admissionParsingShouldMatchJSON() throws ParseException, IOException {
-
-            String mockJSONFile = "src/mock_objects/mockAdmissionsArray.json";
-
+            String mockJSONFile = "src/mock_objects/mockAdmissionsArray";
             JSONArray jsonArray = Getter.parseJsonToJsonArray(mockJSONFile);
-
-            JSONObject jsonObject = (JSONObject) jsonArray.get(0);
-
-            String expected = jsonObject.get("id").toString();
-
-            assertEquals(expected, "1");
-
+            JSONObject jsonObject = (JSONObject) jsonArray.get(1);
+            assertEquals(jsonObject.get("id").toString(), "2");
+            assertEquals(jsonObject.get("admissionDate").toString(), "2020-12-31T23:59:00");
+            assertEquals(jsonObject.get("dischargeDate").toString(), "2021-01-01T00:00:00");
+            assertEquals(jsonObject.get("patientID").toString(), "1");
         }
-
         @Test
         public void allocationParsingShouldMatchJSON () throws ParseException, IOException {
-            for (int i = 0; i < 3; i++) {
-
-                String mockJSONFile = "src/mock_objects/mockAllocationsArray.json";
-
-                JSONArray jsonArray = Getter.parseJsonToJsonArray(mockJSONFile);
-
-                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-
-                String expected = jsonObject.get("id").toString();
-
-                assertEquals(expected, "1");
-            }
-
+            String mockJSONFile = "src/mock_objects/mockAllocationsArray";
+            JSONArray jsonArray = Getter.parseJsonToJsonArray(mockJSONFile);
+            JSONObject jsonObject = (JSONObject) jsonArray.get(0);
+            assertEquals(jsonObject.get("id").toString(), "9");
+            assertEquals(jsonObject.get("admissionID").toString(), "1");
+            assertEquals(jsonObject.get("employeeID").toString(), "9");
+            assertEquals(jsonObject.get("startTime").toString(), "1999-05-26T00:52:00");
+            assertEquals(jsonObject.get("endTime").toString(), "1999-06-27T16:00:00");
+        }
+        @Test
+        public void employeeParsingShouldMatchJSON () throws ParseException, IOException {
+            String mockJSONFile = "src/mock_objects/mockEmployeesArray";
+            JSONArray jsonArray = Getter.parseJsonToJsonArray(mockJSONFile);
+            JSONObject jsonObject = (JSONObject) jsonArray.get(4);
+            assertEquals(jsonObject.get("id").toString(), "5");
+            assertEquals(jsonObject.get("surname").toString(), "Anderson");
+            assertEquals(jsonObject.get("forename").toString(), "Stella");
+        }
+        @Test
+        public void patientParsingShouldMatchJSON () throws ParseException, IOException {
+            String mockJSONFile = "src/mock_objects/mockPatientsArray";
+            JSONArray jsonArray = Getter.parseJsonToJsonArray(mockJSONFile);
+            JSONObject jsonObject = (JSONObject) jsonArray.get(0);
+            assertEquals(jsonObject.get("id").toString(), "1");
+            assertEquals(jsonObject.get("surname").toString(), "File");
+            assertEquals(jsonObject.get("forename").toString(), "Jason");
+            assertEquals(jsonObject.get("nhsNumber").toString(), "12121212");
         }
 
     }
-
 }
