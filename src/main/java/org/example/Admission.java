@@ -5,8 +5,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Scanner;
 
 public class Admission {
 
@@ -15,6 +17,7 @@ public class Admission {
     String dischargeDate;
     int patientID;
 
+/*
     public static JSONArray getAdmissions(String baseURL) throws MalformedURLException {
         // HttpURLConnection
 
@@ -23,16 +26,16 @@ public class Admission {
         return Getter.getter(url);
 
     }
+*/
 
-    public static JSONArray parseAdmissionJSON(String informationString) throws ParseException {
-        JSONParser parse = new JSONParser();
-        return (JSONArray) parse.parse(String.valueOf(informationString));
 
-    }
 
 
     public static void setAdmission(JSONArray admissions, int index) {
 //        JSONObject admission = (JSONObject) admissions.get(index);
+
+        //using Getter.parseJsonToJsonArray(), create admission class instance
+
     }
 
 }

@@ -1,12 +1,17 @@
 package org.example;
 
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Scanner;
 
 public class Connection {
 
-    public static HttpURLConnection connect(URL url) throws IOException {
+    public static HttpURLConnection setConnection(URL url) throws IOException {
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
@@ -19,9 +24,10 @@ public class Connection {
         return connection;
     }
 
+
     public static int getResponseCode(URL url) throws IOException {
 
-        HttpURLConnection connection = connect(url);
+        HttpURLConnection connection = setConnection(url);
 
         return connection.getResponseCode();
     }

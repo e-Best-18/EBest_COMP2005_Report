@@ -1,0 +1,23 @@
+[
+  {
+    "id": 9,
+    "admissionID": 1,
+    "employeeID": 9,
+    "startTime": "1999-05-26T00:52:00",
+    "endTime": "1999-06-27T16:00:00"
+  },
+  {
+    "id": 2,
+    "admissionID": 2,
+    "employeeID": 4,
+    "startTime": "2023-05-16T06:00:00",
+    "endTime": "2023-05-16T12:00:00"
+  },
+  {
+    "id": 1,
+    "admissionID": 3,
+    "employeeID": 4,
+    "startTime": "2023-05-16T06:00:00",
+    "endTime": "2023-05-16T12:00:00"
+  }
+]

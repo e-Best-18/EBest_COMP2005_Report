@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "admissionDate": "2022-02-22T11:11:11",
+    "dischargeDate": "2022-02-22T22:22:22",
+    "patientID": 2
+  },
+  {
+    "id": 2,
+    "admissionDate": "2020-12-31T23:59:00",
+    "dischargeDate": "2021-01-01T00:00:00",
+    "patientID": 1
+  },
+  {
+    "id": 3,
+    "admissionDate": "2021-01-01T00:00:00",
+    "dischargeDate": "2021-012-31T59:59:59",
+    "patientID": 3
+  }
+]
