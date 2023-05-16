@@ -10,10 +10,12 @@ public class Main {
 
         String baseURL = "https://web.socem.plymouth.ac.uk/COMP2005/api/";
 
-        JSONArray admissions = GetAdmissions.getAdmissions(baseURL + "Admissions");
-        JSONArray allocations = GetAllocations.getAllocations(baseURL + "Allocations");
-        JSONArray employees = GetEmployees.getEmployees(baseURL + "Employees");
-        JSONArray patients = GetPatients.getPatients(baseURL + "Patients");
+
+
+        JSONArray admissions = Admission.getAdmissions(baseURL + "Admissions");
+        JSONArray allocations = Allocation.getAllocations(baseURL + "Allocations");
+        JSONArray employees = Employee.getEmployees(baseURL + "Employees");
+        JSONArray patients = Patient.getPatients(baseURL + "Patients");
 
         JSONObject admission = (JSONObject) admissions.get(0);
         JSONObject allocation = (JSONObject) allocations.get(0);

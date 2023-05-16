@@ -38,7 +38,7 @@ public class Getter {
 
                 String stringToParse = String.valueOf(informationString);
 
-                return AdmissionObject.parseAdmissionJSON(stringToParse);
+                return Admission.parseAdmissionJSON(stringToParse);
 
             }
 
