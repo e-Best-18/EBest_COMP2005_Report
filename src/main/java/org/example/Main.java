@@ -1,10 +1,10 @@
 package org.example;
 
+import com.google.gson.Gson;
 import org.json.simple.*;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 public class Main {
 
@@ -15,9 +15,7 @@ public class Main {
 
         JSONArray array = Getter.parseJsonToJsonArray(baseURL + "Admissions");
 
-        Admission.deserialiseAdmission(array.toJSONString());
-
-//        Admission.setAdmission(Getter.parseJsonToJsonArray(baseURL + "Admissions"), 0);
+        Admission.deserialiseAdmissions(array.toJSONString());
 
 /*
         JSONArray testerAd = Getter.parseJsonToJsonArray("src/mock_objects/mockAdmissionsArray");

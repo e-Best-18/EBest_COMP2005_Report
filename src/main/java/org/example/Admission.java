@@ -1,32 +1,63 @@
 package org.example;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.json.simple.JSONArray;
 
 
 public class Admission {
 
-    static int id;
-    static String admissionDate;
-    static String dischargeDate;
-    static int patientID;
+    private String admissionDate;
+    private int patientID;
+    private String dischargeDate;
+    private int id;
 
-    public static void deserialiseAdmission(String jsonString) {
+    public static void deserialiseAdmissions(String jsonString) {
         Gson gson = new Gson();
-        Admission admission = gson.fromJson(jsonString, Admission.class);
-        System.out.println(admission);
+//        jsonString = "{'id':1,'admissionDate':'2020-11-28T16:45:00','dischargeDate':'2020-11-28T23:56:00','patientID':2}";
+        System.out.println(jsonString);
+        Admission[] admissions = gson.fromJson(jsonString, Admission[].class);
+        for (Admission admission : admissions) {
+            System.out.println(admission.toString());
+        }
     }
 
-/*
+    public Admission() {
+        id = 0;
+        admissionDate = "a";
+        dischargeDate = "b";
+        patientID = 2;
+    }
+
+    public Admission(int id, String admissionDate, String dischargeDate, int patientID) {
+        this.id = id;
+        this.admissionDate = admissionDate;
+        this.dischargeDate = dischargeDate;
+        this.patientID = patientID;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getAdmissionDate() {
+        return admissionDate;
+    }
+
+    public String getDischargeDate() {
+        return dischargeDate;
+    }
+
+    public int getPatientID() {
+        return patientID;
+    }
+
+
     @Override
     public String toString() {
-        return "[ Admission ID: " + getId() +
-                " Admission Date: " + getAdmissionDate() +
-                " Discharge Date: " + getDischargeDate() +
-                " Patient ID: " + getPatientID() + " ]";
+        return "[Admission ID: " + getId() + "\n" +
+                " Admission Date: " + getAdmissionDate() + "\n" +
+                " Discharge Date: " + getDischargeDate() + "\n" +
+                " Patient ID: " + getPatientID() + "]";
     }
-*/
 
 }
 

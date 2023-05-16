@@ -126,11 +126,13 @@ public class RunTests {
             assertEquals(jsonObject.get("nhsNumber").toString(), "12121212");
         }
 
+/*
         private static Admission admission;
         @Before
         public void initialize(){
             admission = new Admission();
         }
+*/
 /*
         @Test
         public void allocationClassShouldBeAccuratelyFilled() throws ParseException, IOException {
