@@ -13,7 +13,13 @@ public class Main {
 
         String baseURL = "https://web.socem.plymouth.ac.uk/COMP2005/api/";
 
+        JSONArray array = Getter.parseJsonToJsonArray(baseURL + "Admissions");
 
+        Admission.deserialiseAdmission(array.toJSONString());
+
+//        Admission.setAdmission(Getter.parseJsonToJsonArray(baseURL + "Admissions"), 0);
+
+/*
         JSONArray testerAd = Getter.parseJsonToJsonArray("src/mock_objects/mockAdmissionsArray");
         JSONArray testerAl = Getter.parseJsonToJsonArray("src/mock_objects/mockAllocationsArray");
 
@@ -22,6 +28,7 @@ public class Main {
         JSONArray allocations = Getter.parseJsonToJsonArray(baseURL + "Allocations");
         JSONArray employees = Getter.parseJsonToJsonArray(baseURL + "Employees");
         JSONArray patients = Getter.parseJsonToJsonArray(baseURL + "Patients");
+*/
 
 
 
@@ -34,12 +41,14 @@ public class Main {
 
 
 
+/*
         System.out.println(testerAd);
         System.out.println(testerAl);
         System.out.println(admissions);
         System.out.println(allocations);
         System.out.println(employees);
         System.out.println(patients);
+*/
 
 
     }

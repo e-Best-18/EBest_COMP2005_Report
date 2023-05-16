@@ -19,7 +19,6 @@ import java.util.Collection;
 import java.util.Scanner;
 
 import static junit.framework.Assert.*;
-import static org.mockito.Mockito.mock;
 
 // Run all tests
 @RunWith(Enclosed.class)
@@ -126,6 +125,28 @@ public class RunTests {
             assertEquals(jsonObject.get("forename").toString(), "Jason");
             assertEquals(jsonObject.get("nhsNumber").toString(), "12121212");
         }
+
+        private static Admission admission;
+        @Before
+        public void initialize(){
+            admission = new Admission();
+        }
+/*
+        @Test
+        public void allocationClassShouldBeAccuratelyFilled() throws ParseException, IOException {
+            String mockJSONFile = "src/mock_objects/mockAdmissionsArray";
+            JSONArray jsonArray = Getter.parseJsonToJsonArray(mockJSONFile);
+
+
+            int expectedID = 1;
+
+//            int actualID = admission.setAdmission(jsonArray, 0);
+
+//            assertEquals(expectedID, admission.id);
+        }
+
+*/
+
 
     }
 }

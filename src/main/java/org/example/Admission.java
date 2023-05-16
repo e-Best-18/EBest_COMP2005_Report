@@ -1,42 +1,32 @@
 package org.example;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Scanner;
 
 public class Admission {
 
-    int id;
-    String admissionDate;
-    String dischargeDate;
-    int patientID;
+    static int id;
+    static String admissionDate;
+    static String dischargeDate;
+    static int patientID;
+
+    public static void deserialiseAdmission(String jsonString) {
+        Gson gson = new Gson();
+        Admission admission = gson.fromJson(jsonString, Admission.class);
+        System.out.println(admission);
+    }
 
 /*
-    public static JSONArray getAdmissions(String baseURL) throws MalformedURLException {
-        // HttpURLConnection
-
-        URL url = new URL(baseURL);
-
-        return Getter.getter(url);
-
+    @Override
+    public String toString() {
+        return "[ Admission ID: " + getId() +
+                " Admission Date: " + getAdmissionDate() +
+                " Discharge Date: " + getDischargeDate() +
+                " Patient ID: " + getPatientID() + " ]";
     }
 */
-
-
-
-
-    public static void setAdmission(JSONArray admissions, int index) {
-//        JSONObject admission = (JSONObject) admissions.get(index);
-
-        //using Getter.parseJsonToJsonArray(), create admission class instance
-
-    }
 
 }
 
