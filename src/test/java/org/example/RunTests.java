@@ -17,6 +17,7 @@ import java.util.Collection;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotSame;
 
+// Run all tests
 @RunWith(Enclosed.class)
 public class RunTests {
 
