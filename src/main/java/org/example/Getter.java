@@ -13,7 +13,9 @@ import java.util.Scanner;
 
 public class Getter {
 
-    public static JSONArray getter(URL url) throws MalformedURLException {
+
+
+    public static JSONArray getter(URL url) {
 
         HttpURLConnection conn = null;
 
@@ -34,8 +36,9 @@ public class Getter {
                 }
                 scanner.close();
 
-                JSONParser parse = new JSONParser();
-                return (JSONArray) parse.parse(String.valueOf(informationString));
+                String stringToParse = String.valueOf(informationString);
+
+                return AdmissionObject.parseAdmissionJSON(stringToParse);
 
             }
 

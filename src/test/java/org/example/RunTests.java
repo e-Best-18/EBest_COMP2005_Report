@@ -16,6 +16,7 @@ import java.util.Collection;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotSame;
+import static org.mockito.Mockito.mock;
 
 // Run all tests
 @RunWith(Enclosed.class)
@@ -83,7 +84,20 @@ public class RunTests {
         }
     }
 
+/*
+    public static class ParsingJSONTest {
 
+        private Getter.AdmissionObject apiObjMock;
+        private Getter getter;
+
+        @Before
+        public void setup() {
+            apiObjMock = mock(Getter.AdmissionObject.class);
+            getter
+        }
+
+    }
+*/
 
 
 }
