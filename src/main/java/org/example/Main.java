@@ -17,16 +17,18 @@ public class Main {
         JSONArray employees = Employee.getEmployees(baseURL + "Employees");
         JSONArray patients = Patient.getPatients(baseURL + "Patients");
 
+/*
         JSONObject admission = (JSONObject) admissions.get(0);
         JSONObject allocation = (JSONObject) allocations.get(0);
         JSONObject employee = (JSONObject) employees.get(0);
         JSONObject patient = (JSONObject) patients.get(0);
+*/
 
 
-        System.out.println(admission);
-        System.out.println(allocation);
-        System.out.println(employee);
-        System.out.println(patient);
+        System.out.println(admissions);
+        System.out.println(allocations);
+        System.out.println(employees);
+        System.out.println(patients);
 
     }
 }
