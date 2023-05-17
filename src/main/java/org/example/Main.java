@@ -4,17 +4,7 @@ import org.json.simple.*;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.Period;
-import java.time.chrono.ChronoPeriod;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.Temporal;
 import java.util.ArrayList;
-import java.util.Date;
-
-import static java.time.temporal.ChronoUnit.DAYS;
 import static org.example.DateChecker.dateChecker;
 
 public class Main {

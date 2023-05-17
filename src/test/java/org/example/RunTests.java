@@ -43,7 +43,7 @@ public class RunTests {
 
         @Parameterized.Parameters
         public static Collection responseCodeTestCollection() {
-            return Arrays.asList(new Object[][]{
+            return Arrays.asList(new Object[][] {
                     {"https://web.socem.plymouth.ac.uk/COMP2005/api/Admissions", 200},
                     {"https://web.socem.plymouth.ac.uk/COMP2005/api/Allocations", 200},
                     {"https://web.socem.plymouth.ac.uk/COMP2005/api/Employees", 200},
@@ -152,7 +152,7 @@ public class RunTests {
     }
 
     @RunWith(Parameterized.class)
-    public static class FunctionalMethodsTest {
+    public static class DatesAreWithin3DaysTest {
 
         public static DateChecker dateChecker;
         public static String startDate;
@@ -163,7 +163,7 @@ public class RunTests {
             dateChecker = new DateChecker();
         }
 
-        public void DateChecker(String startDate, String endDate) {
+        public DatesAreWithin3DaysTest(String startDate, String endDate) {
             this.startDate = startDate;
             this.endDate = endDate;
         }
@@ -171,11 +171,9 @@ public class RunTests {
         @Parameterized.Parameters
         public static Collection dateCheckerTestCollection() {
             return Arrays.asList(new Object[][]{
+                    {"2020-11-27T23:56:00", "2020-11-29T23:55:59"},
                     {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
                     {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
-                    {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
-                    {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
-                    {"2020-11-28T23:56:00", "2020-11-28T23:56:00"}
             });
         }
         @Test
@@ -185,4 +183,39 @@ public class RunTests {
         }
 
     }
+
+    @RunWith(Parameterized.class)
+    public static class DatesAreNotWithin3DaysAndInRightOrderTest {
+        private DateChecker checker;
+        private  String startDate;
+        private  String endDate;
+
+        @Before
+        public void initialise() {
+            checker = new DateChecker();
+        }
+
+        public DatesAreNotWithin3DaysAndInRightOrderTest(String startDate, String endDate) {
+            this.startDate = startDate;
+            this.endDate = endDate;
+        }
+
+        @Parameterized.Parameters
+        public static Collection dateCheckerTestCollection() {
+            return Arrays.asList(new Object[][]{
+                    {"2020-11-28T23:56:00", "2021-11-28T23:56:00"},
+                    {"0001-01-01T00:00:00", "2020-11-28T23:56:00"},
+                    {"2020-01-01T00:00:00", "2020-01-03T00:00:01"},
+                    {"2020-01-12T23:56:00", "2019-11-28T23:56:00"},
+                    {"2021-01-01T00:00:01", "2020-01-01T00:00:00"}
+            });
+        }
+        @Test
+        public void datesAreNotWithin3DaysAndInRightOrderTest() {
+
+            assertFalse(checker.dateChecker(startDate, endDate));
+        }
+
+    }
+
 }
