@@ -1,33 +1,69 @@
 package org.example;
 
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.google.gson.Gson;
 
 public class Allocation {
 
-    int id;
-    int admissionID;
-    int employeeID;
-    String startTime;
-    String  endTime;
+    private int id;
+    private int admissionID;
+    private int employeeID;
+    private String startTime;
+    private String endTime;
 
-    public static JSONArray getAllocations(String baseURL) throws MalformedURLException {
-        // HttpURLConnection
+    public static void deserialiseAllocations(String jsonString) {
+        Gson gson = new Gson();
+//        jsonString = "{'id':1,'admissionDate':'2020-11-28T16:45:00','dischargeDate':'2020-11-28T23:56:00','patientID':2}";
 
-        URL url = new URL(baseURL);
+        System.out.println(jsonString);
 
-        return Getter.getter(url);
-
+        Allocation[] allocations = gson.fromJson(jsonString, Allocation[].class);
+        for (Allocation allocation : allocations) {
+            System.out.println(allocation.toString());
+        }
     }
 
-    public static JSONArray parseAllocationJSON(String informationString) throws ParseException {
-        JSONParser parse = new JSONParser();
-        return (JSONArray) parse.parse(String.valueOf(informationString));
+    public Allocation() {
+        id = 0;
+        admissionID = 1;
+        employeeID = 2;
+        startTime = "a";
+        endTime = "b";
     }
 
+    public Allocation(int id, int admissionID, int employeeID, String startTime, String endTime) {
+        this.id = id;
+        this.admissionID = admissionID;
+        this.employeeID = employeeID;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
+    public int getID() {
+        return id;
+    }
+
+    public int getAdmissionID() {
+        return admissionID;
+    }
+
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    @Override
+    public String toString() {
+        return  "[Allocation ID: " + getID() + "\n" +
+                " Admission ID: " + getAdmissionID() + "\n" +
+                " Admission Date: " + getEmployeeID() + "\n" +
+                " Discharge Date: " + getStartTime() + "\n" +
+                " Patient ID: " + getEndTime() + "]";
+    }
 }
-

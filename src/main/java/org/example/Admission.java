@@ -2,7 +2,6 @@ package org.example;
 
 import com.google.gson.Gson;
 
-
 public class Admission {
 
     private String admissionDate;
@@ -13,7 +12,9 @@ public class Admission {
     public static void deserialiseAdmissions(String jsonString) {
         Gson gson = new Gson();
 //        jsonString = "{'id':1,'admissionDate':'2020-11-28T16:45:00','dischargeDate':'2020-11-28T23:56:00','patientID':2}";
+
         System.out.println(jsonString);
+
         Admission[] admissions = gson.fromJson(jsonString, Admission[].class);
         for (Admission admission : admissions) {
             System.out.println(admission.toString());
@@ -34,7 +35,7 @@ public class Admission {
         this.patientID = patientID;
     }
 
-    public int getId() {
+    public int getID() {
         return id;
     }
 
@@ -50,14 +51,12 @@ public class Admission {
         return patientID;
     }
 
-
     @Override
     public String toString() {
-        return "[Admission ID: " + getId() + "\n" +
+        return "[Admission ID: " + getID() + "\n" +
                 " Admission Date: " + getAdmissionDate() + "\n" +
                 " Discharge Date: " + getDischargeDate() + "\n" +
                 " Patient ID: " + getPatientID() + "]";
     }
-
 }
 

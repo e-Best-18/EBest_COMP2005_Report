@@ -5,6 +5,7 @@ import org.json.simple.*;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
 
@@ -13,9 +14,11 @@ public class Main {
 
         String baseURL = "https://web.socem.plymouth.ac.uk/COMP2005/api/";
 
-        JSONArray array = Getter.parseJsonToJsonArray(baseURL + "Admissions");
+        JSONArray array = Getter.parseJsonToJsonArray(baseURL + "Employees");
 
-        Admission.deserialiseAdmissions(array.toJSONString());
+        Employee.deserialiseEmployees(array.toJSONString());
+
+//        getPatientByEmployeeID();
 
 /*
         JSONArray testerAd = Getter.parseJsonToJsonArray("src/mock_objects/mockAdmissionsArray");
@@ -50,4 +53,12 @@ public class Main {
 
 
     }
+
+    public static void getPatientByEmployeeID() throws IOException {
+        Scanner userInput = new Scanner(System.in);
+        int employeeID = userInput.nextInt();
+        userInput.close();
+        System.out.println("you typed: " + employeeID);
+    }
+
 }
