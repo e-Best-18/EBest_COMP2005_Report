@@ -14,7 +14,6 @@ import org.junit.runners.Parameterized;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -49,7 +48,7 @@ public class RunTests {
                     {"https://web.socem.plymouth.ac.uk/COMP2005/api/Allocations", 200},
                     {"https://web.socem.plymouth.ac.uk/COMP2005/api/Employees", 200},
                     {"https://web.socem.plymouth.ac.uk/COMP2005/api/Patients", 200},
-                    {"https://web.socem.plymouth.ac.uk/COMP2005/api/Admis", 404},
+                    {"https://web.socem.plymouth.ac.uk/COMP2005/api/Admis", 404}
             });
         }
 
@@ -176,13 +175,13 @@ public class RunTests {
                     {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
                     {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
                     {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
-                    {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
+                    {"2020-11-28T23:56:00", "2020-11-28T23:56:00"}
             });
         }
         @Test
         public void dateCheckerShouldBeWithin3Days() {
 
-            assertEquals(true, dateChecker.dateChecker(startDate, endDate));
+            assertTrue(dateChecker.dateChecker(startDate, endDate));
         }
 
     }
