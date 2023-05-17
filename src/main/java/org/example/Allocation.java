@@ -10,16 +10,19 @@ public class Allocation {
     private String startTime;
     private String endTime;
 
-    public static void deserialiseAllocations(String jsonString) {
+    public static Allocation[] deserialiseAllocations(String jsonString) {
         Gson gson = new Gson();
 //        jsonString = "{'id':1,'admissionDate':'2020-11-28T16:45:00','dischargeDate':'2020-11-28T23:56:00','patientID':2}";
 
         System.out.println(jsonString);
 
         Allocation[] allocations = gson.fromJson(jsonString, Allocation[].class);
+/*
         for (Allocation allocation : allocations) {
             System.out.println(allocation.toString());
         }
+*/
+        return allocations;
     }
 
     public Allocation() {

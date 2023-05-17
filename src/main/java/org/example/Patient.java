@@ -10,16 +10,19 @@ public class Patient {
     private String nhsNumber;
 
 
-    public static void deserialisePatients(String jsonString) {
+    public static Patient[] deserialisePatients(String jsonString) {
         Gson gson = new Gson();
 //        jsonString = "{'id':1,'admissionDate':'2020-11-28T16:45:00','dischargeDate':'2020-11-28T23:56:00','patientID':2}";
 
-        System.out.println(jsonString);
+//        System.out.println(jsonString);
 
         Patient[] patients = gson.fromJson(jsonString, Patient[].class);
+/*
         for (Patient patient : patients) {
             System.out.println(patient.toString());
         }
+*/
+        return patients;
     }
 
     public Patient() {

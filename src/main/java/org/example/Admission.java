@@ -4,21 +4,24 @@ import com.google.gson.Gson;
 
 public class Admission {
 
-    private String admissionDate;
-    private int patientID;
-    private String dischargeDate;
     private int id;
+    private String admissionDate;
+    private String dischargeDate;
+    private int patientID;
 
-    public static void deserialiseAdmissions(String jsonString) {
+    public static Admission[] deserialiseAdmissions(String jsonString) {
         Gson gson = new Gson();
 //        jsonString = "{'id':1,'admissionDate':'2020-11-28T16:45:00','dischargeDate':'2020-11-28T23:56:00','patientID':2}";
 
-        System.out.println(jsonString);
+//        System.out.println(jsonString);
 
         Admission[] admissions = gson.fromJson(jsonString, Admission[].class);
+/*
         for (Admission admission : admissions) {
             System.out.println(admission.toString());
         }
+*/
+        return admissions;
     }
 
     public Admission() {

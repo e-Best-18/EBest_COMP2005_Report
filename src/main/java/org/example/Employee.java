@@ -9,16 +9,20 @@ public class Employee {
     private String forename;
 
 
-    public static void deserialiseEmployees(String jsonString) {
+    public static Employee[] deserialiseEmployees(String jsonString) {
         Gson gson = new Gson();
 //        jsonString = "{'id':1,'admissionDate':'2020-11-28T16:45:00','dischargeDate':'2020-11-28T23:56:00','patientID':2}";
 
-        System.out.println(jsonString);
+//        System.out.println(jsonString);
 
         Employee[] employees = gson.fromJson(jsonString, Employee[].class);
+/*
         for (Employee employee : employees) {
             System.out.println(employee.toString());
         }
+*/
+
+        return employees;
     }
 
     public Employee() {
