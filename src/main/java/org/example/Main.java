@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import static java.time.temporal.ChronoUnit.DAYS;
+import static org.example.DateChecker.dateChecker;
 
 public class Main {
 
@@ -60,10 +61,7 @@ public class Main {
         Admission[] admissions = Admission.deserialiseAdmissions(arrayAdmissions.toJSONString());
         // select admissions with < 3 days stay
         for (Admission admission : admissions) {
-            LocalDateTime startDate = LocalDateTime.parse(admission.getAdmissionDate());
-            LocalDateTime endDate = LocalDateTime.parse(admission.getDischargeDate());
-            long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
-            if (daysBetween < 3 && startDate.isAfter(endDate)){
+            if (dateChecker(admission.getAdmissionDate(), admission.getDischargeDate())) {
                 patientIDs.add(admission.getPatientID());
             }
         }
@@ -81,4 +79,5 @@ public class Main {
         System.out.println(patientArrayList);
         return patientArrayList;
     }
+
 }

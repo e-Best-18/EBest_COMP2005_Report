@@ -14,9 +14,9 @@ import org.junit.runners.Parameterized;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Scanner;
 
 import static junit.framework.Assert.*;
 
@@ -149,6 +149,41 @@ public class RunTests {
 
 */
 
+
+    }
+
+    @RunWith(Parameterized.class)
+    public static class FunctionalMethodsTest {
+
+        public static DateChecker dateChecker;
+        public static String startDate;
+        public static String endDate;
+
+        @Before
+        public void initialise() {
+            dateChecker = new DateChecker();
+        }
+
+        public void DateChecker(String startDate, String endDate) {
+            this.startDate = startDate;
+            this.endDate = endDate;
+        }
+
+        @Parameterized.Parameters
+        public static Collection dateCheckerTestCollection() {
+            return Arrays.asList(new Object[][]{
+                    {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
+                    {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
+                    {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
+                    {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
+                    {"2020-11-28T23:56:00", "2020-11-28T23:56:00"},
+            });
+        }
+        @Test
+        public void dateCheckerShouldBeWithin3Days() {
+
+            assertEquals(true, dateChecker.dateChecker(startDate, endDate));
+        }
 
     }
 }
